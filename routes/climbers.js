@@ -16,6 +16,7 @@ router.post('/', async (req, res) => {
     const climber = new Climber({
         id: req.body.id,
         name: req.body.name,
+        image: req.body.image,
         yearOfBirth: req.body.yearOfBirth,
         country: req.body.country,
         federation: req.body.federation,

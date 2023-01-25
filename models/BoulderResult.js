@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const LeadResultSchema = mongoose.Schema({
+const BoulderResultSchema = mongoose.Schema({
     id: {
         type: String, required: true,
     }, year: {
@@ -20,4 +20,4 @@ const LeadResultSchema = mongoose.Schema({
     },
 })
 
-module.exports = mongoose.model('LeadResult', LeadResultSchema);
+module.exports = mongoose.model('BoulderResult', BoulderResultSchema);

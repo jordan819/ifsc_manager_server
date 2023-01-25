@@ -2,24 +2,17 @@ const mongoose = require('mongoose');
 
 const ClimberSchema = mongoose.Schema({
     id: {
-        type: Number,
-        required: true,
-    },
-    name: {
-        type: String,
-        required: true,
-    },
-    yearOfBirth: {
-        type: Number,
-        required: false,
-    },
-    country: {
-        type: String,
-        required: true,
-    },
-    federation: {
-        type: String,
-        require: true,
+        type: String, required: true,
+    }, name: {
+        type: String, required: true,
+    }, image: {
+        type: String, required: false, default: "https://icons.veryicon.com/png/o/internet--web/prejudice/user-128.png"
+    }, yearOfBirth: {
+        type: Number, required: false,
+    }, country: {
+        type: String, required: true,
+    }, federation: {
+        type: String, require: true,
     },
 })
 
