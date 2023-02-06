@@ -6,6 +6,7 @@ router.get('/', async (req, res) => {
     console.log('Returning climbers list')
     try {
         const climbers = await Climber.find();
+        console.log(climbers)
         res.json(climbers);
     } catch (err) {
         res.json({message: err});
@@ -14,12 +15,15 @@ router.get('/', async (req, res) => {
 
 router.post('/', async (req, res) => {
     const climber = new Climber({
-        id: req.body.id,
         name: req.body.name,
         yearOfBirth: req.body.yearOfBirth,
         country: req.body.country,
         federation: req.body.federation,
     });
+
+    if (req.body.image.trim() !== "") {
+        climber.image = req.body.image;
+    }
 
     try {
         const savedClimber = await climber.save();
@@ -31,21 +35,21 @@ router.post('/', async (req, res) => {
 
 router.get('/:climberId', async (req, res) => {
     try {
-        const climber = await Climber.findById(req.params.id)
+        const climber = await Climber.findById(req.params.climberId)
         if (climber !== null) {
             res.json(climber)
         } else {
-            res.status(404)
+            res.status(404).send()
         }
-        res.send()
     } catch (err) {
         res.json({message: err});
     }
 });
 
 router.delete('/:climberId', async (req, res) => {
+    console.log("Deleting climber with id: " + req.params.climberId)
     try {
-        const removeUser = await Climber.remove({id: req.params.climberId});
+        const removeUser = await Climber.findByIdAndDelete(req.params.climberId);
         res.json(removeUser);
     } catch (err) {
         res.json({message: err});
