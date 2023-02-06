@@ -1,9 +1,7 @@
 const mongoose = require('mongoose');
 
 const SpeedResultSchema = mongoose.Schema({
-    id: {
-        type: String, required: true,
-    }, year: {
+    year: {
         type: Number, required: true,
     }, rank: {
         type: Number, required: false,

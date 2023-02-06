@@ -1,9 +1,7 @@
 const mongoose = require('mongoose');
 
 const BoulderResultSchema = mongoose.Schema({
-    id: {
-        type: String, required: true,
-    }, year: {
+    year: {
         type: Number, required: true,
     }, competitionId: {
         type: String, required: true,
