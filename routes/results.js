@@ -8,6 +8,7 @@ router.get('/lead', async (req, res) => {
     console.log("Returning lead results")
     try {
         const leadResults = await LeadResult.find();
+        console.log(leadResults)
         res.json(leadResults);
     } catch (err) {
         res.json({message: err});
@@ -106,7 +107,7 @@ router.get('/:resultId', async (req, res) => {
 
 router.delete('/:resultId', async (req, res) => {
     try {
-        const removeResult = await LeadResult.findByIdAndDelete(req.params.resultId);
+        const removeResult = await SpeedResult.findByIdAndDelete(req.params.resultId);
         res.json(removeResult);
     } catch (err) {
         res.json({message: err});
